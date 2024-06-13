@@ -1,0 +1,6 @@
+environments:
+  vpc:
+    name: 'VPC and Network'
+    templateName: 'VPC'
+settings:
+	environmentRemovalStrategy: destroy | detach
