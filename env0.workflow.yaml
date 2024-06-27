@@ -4,6 +4,7 @@ environments:
     requiresApproval: true 
     vcs:
       type: 'terraform'
+      terraformversion: '1.5.7'
       repository: 'https://github.com/ashritha0907/terraform-aws-vpc'
       path: 'main.tf'
     
@@ -12,6 +13,7 @@ environments:
     requiresApproval: true 
     vcs:
       type: 'terraform'
+      terraformversion: '1.5.7'
       repository: 'https://github.com/ashritha0907/terraform-aws-rds'
       path: 'main.tf'
     needs:
@@ -22,6 +24,7 @@ environments:
     requiresApproval: true 
     vcs:
       type: 'terraform'
+      terraformversion: '1.5.7'
       repository: 'https://github.com/ashritha0907/terraform-aws-eks-cluster'
       path: 'main.tf'
     needs:
