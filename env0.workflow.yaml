@@ -5,7 +5,7 @@ environments:
     vcs:
       type: 'terraform'
       terraformVersion: '1.5.7'
-      repository: 'https://github.com/ashritha0907/terraform-aws-vpc'
+      repository: 'https://github.com/ashritha0907/env-workflow/tree/env0worlflow/terraform-aws-vpc-main'
       path: 'main.tf'
     
   db:
@@ -14,7 +14,7 @@ environments:
     vcs:
       type: 'terraform'
       terraformVersion: '1.5.7'
-      repository: 'https://github.com/ashritha0907/terraform-aws-rds'
+      repository: 'https://github.com/ashritha0907/env-workflow/tree/env0worlflow/terraform-aws-rds-main'
       path: 'main.tf'
     needs:
       - vpc
@@ -36,7 +36,7 @@ environments:
     vcs:
       type: 'terraform'
       terraformVersion: '1.5.7'
-      repository: 'https://github.com/ashritha0907/terraform-aws-eks-cluster'
+      repository: 'https://github.com/ashritha0907/env-workflow/tree/env0worlflow/terraform-aws-eks-cluster-main'
       path: 'main.tf'
     needs:
       - vpc
