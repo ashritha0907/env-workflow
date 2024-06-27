@@ -1,46 +1,42 @@
 environments:
   vpc:
     name: 'VPC and Network'
-    templateName: 'VPC'
-  db:
-    name: DB
-    templateName: 'DB'
     requiresApproval: true 
-    needs:
-      - vpc
-  eks:
-    name: EKS
-    templateName: 'EKS'
-    needs:
-      - vpc
-  service1:
-    name: 'Billing Service'
     vcs:
       type: 'terraform'
       terraformVersion: '1.5.7'
-      repository: 'https://github.com/env0/templates'
-      path: 'aws/hello-world'
-      githubInstallationId: 123456789
-      # bitbucketClientKey for bitbucket
-      # gitlabProjectId for gitlab
-    disabled: ${DISABLE_SERVICE_1}   # omit service1 deployment,
-                                     # if the interpolated env var DISABLE_SERVICE_1 is true
+      repository: 'https://github.com/ashritha0907/terraform-aws-vpc'
+      path: 'main.tf'
+    
+  db:
+    name: DB
+    requiresApproval: true 
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/ashritha0907/terraform-aws-rds'
+      path: 'main.tf'
     needs:
-      - db
-      - eks
-  service2:
-    name: 'Configuration Service'
-    templateName: 'Configuration Service' 
-    revision: feature-branch
-    disabled: ${DISABLE_SERVICE_2}
+      - vpc
+
+  ec2:
+    name: EC2
+    requiresApproval: true 
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/ashritha0907/terraform-aws-rds'
+      path: 'main.tf'
     needs:
-      - db
-      - eks
-  service3:
-    name: 'Notification Service'
-    templateName: 'Notification Service'
-    workspace: env0-workspace
-    disabled: ${DISABLE_SERVICE_3}
+      - vpc
+      
+  eks:
+    name: EKS
+    requiresApproval: true 
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/ashritha0907/terraform-aws-eks-cluster'
+      path: 'main.tf'
     needs:
-      - db
-      - eks
+      - vpc
