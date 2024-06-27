@@ -14,7 +14,7 @@ environments:
       type: 'terraform'
       repository: 'https://github.com/ashritha0907/terraform-aws-rds'
       path: 'main.tf'
-    need:
+    needs:
       - vpc
       
   eks:
